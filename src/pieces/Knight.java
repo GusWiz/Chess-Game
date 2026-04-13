@@ -14,7 +14,7 @@ public class Knight extends Piece{
         this.yPos = row * board.tileSize;
 
         this.name = "Knight";
-
-        this.sprite = sheet.getSubimage(3 * sheetScale, isWhite ? 0 : sheetScale, sheetScale, sheetScale).getScaledInstance(board.tileSize, board.tileSize, BufferedImage.SCALE_SMOOTH);
+        this.sheetIndex = 3; // the png file has 6 images, so the index of the knight is 3
+        this.sprite = sheet.getSubimage(this.sheetIndex * sheetScale, isWhite ? 0 : sheetScale, sheetScale, sheetScale).getScaledInstance(board.tileSize, board.tileSize, BufferedImage.SCALE_SMOOTH);
     }
 }

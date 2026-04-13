@@ -14,6 +14,7 @@ public abstract class Piece {
 
     public String name;
     public int value; // tier of piece (pawn, knight, bishop, rook, queen, king)
+    protected static int sheetIndex;
 
     BufferedImage sheet;
     {
