@@ -5,6 +5,7 @@ import pieces.Knight;
 import pieces.Pawn;
 import pieces.Rook;
 import pieces.Bishop;
+import pieces.King;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,6 +41,7 @@ public class Board extends JPanel {
         pieceList.add(new Knight(this, 6, 0, false));
         pieceList.add(new Bishop(this, 2, 0, false));
         pieceList.add(new Bishop(this, 5, 0, false));
+        pieceList.add(new King(this, 4, 0, false));
         pieceList.add(new Pawn(this, 0, 1, false));
         pieceList.add(new Pawn(this, 1, 1, false));
         pieceList.add(new Pawn(this, 2, 1, false));

@@ -16,8 +16,9 @@ public abstract class Piece {
     public int value; // tier of piece (pawn, knight, bishop, rook, queen, king)
     protected int sheetIndex;
 
-    BufferedImage sheet;
-    {
+    // this makes it run once when the program starts
+    static BufferedImage sheet;
+    static {
         try {
             sheet = ImageIO.read(ClassLoader.getSystemResourceAsStream("pieces.png"));
         } catch (IOException e) {
