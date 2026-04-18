@@ -4,6 +4,8 @@ out/
 !**/src/test/**/out/
 .kotlin
 .idea
+*.xml
+*.iml
 
 
 ### Eclipse ###
@@ -34,5 +36,5 @@ bin/
 ### MISC ###
 .out
 *.iml
-.idea
 *.xml
+.idea/
