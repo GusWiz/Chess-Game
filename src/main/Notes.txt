@@ -1,0 +1,9 @@
+On the second commit, I added a class called Board. This class creates a board of 8x8 squares.
+Which will be used to create a game of chess. Using the swing library for GUI. We are using JPanel
+to create the board, as it is layered on top of the JFrame (Window).
+
+Current Code Execution Logic:
+Main creates a new JFrame, which is a window. Where it then setups the content of it.
+After that it calls Board to create a board. Using the base constructor of board, it sets it up.
+The board is then added to the JFrame.
+While 

@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.FileInputStream;
 
 public abstract class Piece {
     public int row, col;
@@ -14,12 +15,13 @@ public abstract class Piece {
 
     public String name;
     public int value; // tier of piece (pawn, knight, bishop, rook, queen, king)
-    protected static int sheetIndex;
+    protected int sheetIndex;
 
-    BufferedImage sheet;
-    {
+    // static makes it run once when the program starts
+    static BufferedImage sheet;
+    static {
         try {
-            sheet = ImageIO.read(ClassLoader.getSystemResourceAsStream("pieces.png"));
+            sheet = ImageIO.read(new FileInputStream("res/pieces.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -33,6 +35,14 @@ public abstract class Piece {
 
     public Piece(Board board) {
         this.board = board;
+    }
+
+    public boolean isValidMovement(int col, int row) {
+        return true;
+    }
+
+    public boolean moveCollidesWithPiece(int col, int row) {
+        return true;
     }
 
     public void paint(Graphics g2d) {
