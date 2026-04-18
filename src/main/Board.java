@@ -102,22 +102,23 @@ public class Board extends JPanel {
         pieceList.add(new Pawn(this, 7, 1, false));
         pieceList.add(new Rook(this, 7,0, false));
 
-        // pieceList.add(new Rook(this, 0, 0, true));
-        // pieceList.add(new Knight(this, 1, 6, true));
-        // pieceList.add(new Knight(this, 6, 6, true));
-        // pieceList.add(new Bishop(this, 2, 6, true));
-        // pieceList.add(new Bishop(this, 5, 6, true));
-        // pieceList.add(new Queen(this, 3, 6, true));
-        // pieceList.add(new King(this, 4, 6, true));
-        // pieceList.add(new Pawn(this, 0, 7, true));
-        // pieceList.add(new Pawn(this, 1, 7, true));
-        // pieceList.add(new Pawn(this, 2, 7, true));
-        // pieceList.add(new Pawn(this, 3, 7, true));
-        // pieceList.add(new Pawn(this, 4, 7, true));
-        // pieceList.add(new Pawn(this, 5, 7, true));
-        // pieceList.add(new Pawn(this, 6, 7, true));
-        // pieceList.add(new Pawn(this, 7, 7, true));
-        // pieceList.add(new Rook(this, 7,7, true));
+        pieceList.add(new Rook(this, 0, 7, true));
+        pieceList.add(new Knight(this, 1, 7, true));
+        pieceList.add(new Knight(this, 6, 7, true));
+        pieceList.add(new Bishop(this, 2, 7, true));
+        pieceList.add(new Bishop(this, 5, 7, true));
+        pieceList.add(new Queen(this, 3, 7, true));
+        pieceList.add(new King(this, 4, 7, true));
+        pieceList.add(new Pawn(this, 0, 6, true));
+        pieceList.add(new Pawn(this, 1, 6, true));
+        pieceList.add(new Pawn(this, 2, 6, true));
+        pieceList.add(new Pawn(this, 3, 6, true));
+        pieceList.add(new Pawn(this, 4, 6, true));
+        pieceList.add(new Pawn(this, 5, 6, true));
+        pieceList.add(new Pawn(this, 6, 6, true));
+        pieceList.add(new Pawn(this, 7, 6, true));
+        pieceList.add(new Pawn(this, 7,7, true));
+        pieceList.add(new Rook(this, 7,7, true));
     }
 
     // This function purpose is to downcast the Graphics object to Graphics2D, allowing us
@@ -128,6 +129,7 @@ public class Board extends JPanel {
     // default type to a subtype.
     public void paintComponent(Graphics g) {
         // Note: g2d is like the paintbrush of the Canvas (JPanel)
+        // Paint board
         Graphics2D g2d = (Graphics2D) g; // (Down)casting the Graphics object to Graphics2D
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
@@ -137,14 +139,19 @@ public class Board extends JPanel {
             }
         }
 
+        // if statement is necessary as the files will have a blank window.
+        // As by default selected Piece is null
+        if (selectedPiece != null) // highlight possible moves
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (isValidMove(new Move(this, selectedPiece, c, r))) {
-
+                    g2d.setColor(new Color(70,187,224, 70));
+                    g2d.fillRect(c * tileSize, r * tileSize, tileSize, tileSize);
                 }
             }
         }
 
+        // paint pieces using svg file
         for (Piece piece : pieceList) {
             piece.paint(g2d);
         }
