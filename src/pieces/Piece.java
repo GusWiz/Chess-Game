@@ -37,6 +37,14 @@ public abstract class Piece {
         this.board = board;
     }
 
+    public boolean isValidMovement(int col, int row) {
+        return true;
+    }
+
+    public boolean moveCollidesWithPiece(int col, int row) {
+        return true;
+    }
+
     public void paint(Graphics g2d) {
         g2d.drawImage(sprite, xPos, yPos, null);
     }
