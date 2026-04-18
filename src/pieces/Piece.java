@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.FileInputStream;
 
 public abstract class Piece {
     public int row, col;
@@ -16,11 +17,11 @@ public abstract class Piece {
     public int value; // tier of piece (pawn, knight, bishop, rook, queen, king)
     protected int sheetIndex;
 
-    // this makes it run once when the program starts
+    // static makes it run once when the program starts
     static BufferedImage sheet;
     static {
         try {
-            sheet = ImageIO.read(ClassLoader.getSystemResourceAsStream("pieces.png"));
+            sheet = ImageIO.read(new FileInputStream("res/pieces.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
