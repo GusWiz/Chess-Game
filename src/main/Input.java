@@ -3,8 +3,6 @@ package main;
 import pieces.Piece;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
 public class Input extends MouseAdapter {
     Board board;
@@ -34,7 +32,7 @@ public class Input extends MouseAdapter {
 
             if (board.isValidMove(move)) {
                 board.makeMove(move);
-            } else {
+            } else { // Return piece to original location.
                 board.selectedPiece.xPos = board.selectedPiece.col * board.tileSize;
                 board.selectedPiece.yPos = board.selectedPiece.row * board.tileSize;
             }
