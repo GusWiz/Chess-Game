@@ -42,7 +42,7 @@ public abstract class Piece {
     }
 
     public boolean moveCollidesWithPiece(int col, int row) {
-        return true;
+        return false;
     }
 
     public void paint(Graphics g2d) {

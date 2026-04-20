@@ -17,4 +17,8 @@ public class Knight extends Piece{
         this.sheetIndex = 3; // the png file has 6 images, so the index of the knight is 3
         this.sprite = sheet.getSubimage(this.sheetIndex * sheetScale, isWhite ? 0 : sheetScale, sheetScale, sheetScale).getScaledInstance(board.tileSize, board.tileSize, BufferedImage.SCALE_SMOOTH);
     }
+
+    public boolean isValidMovement(int col, int row) {
+        return Math.abs(col - this.col) * Math.abs(row - this.row) == 2;
+    }
 }

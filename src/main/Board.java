@@ -60,11 +60,16 @@ public class Board extends JPanel {
 
     public boolean isValidMove(Move move) {
 
-        if (!sameTeam(move.piece, move.capture)) {
-            return true;
+        if (sameTeam(move.piece, move.capture)) {
+            return false;
         }
-
-        return false;
+        if (!move.piece.isValidMovement(move.newCol, move.newRow)) {
+            return false;
+        }
+        if (move.piece.moveCollidesWithPiece(move.newCol, move.newRow)) {
+            return false;
+        }
+        return true;
     }
 
     public boolean sameTeam(Piece p1, Piece p2) {
@@ -134,7 +139,7 @@ public class Board extends JPanel {
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 // Alternate the color to make a checkerboard pattern.
-                g2d.setColor((c + r) % 2 == 0 ? new Color(61, 239, 149) : new Color(237, 85, 148));
+                g2d.setColor((c + r) % 2 == 0 ? new Color(61, 239, 249) : new Color(237, 85, 148));
                 g2d.fillRect(c * tileSize, r * tileSize, tileSize, tileSize);
             }
         }
@@ -145,7 +150,7 @@ public class Board extends JPanel {
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (isValidMove(new Move(this, selectedPiece, c, r))) {
-                    g2d.setColor(new Color(70,187,224, 70));
+                    g2d.setColor(new Color(240, 90,244, 120));
                     g2d.fillRect(c * tileSize, r * tileSize, tileSize, tileSize);
                 }
             }
