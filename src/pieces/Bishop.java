@@ -18,7 +18,7 @@ public class Bishop extends Piece{
     }
 
     public boolean isValidMovement(int col, int row) {
-        return Math.abs(this.col - col) == Math.abs(this.row - row );
+        return Math.abs(this.col - col) == Math.abs(this.row - row);
     }
 
     public boolean moveCollidesWithPiece(int col, int row) {
