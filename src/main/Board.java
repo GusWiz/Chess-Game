@@ -122,7 +122,6 @@ public class Board extends JPanel {
         pieceList.add(new Pawn(this, 5, 6, true));
         pieceList.add(new Pawn(this, 6, 6, true));
         pieceList.add(new Pawn(this, 7, 6, true));
-        pieceList.add(new Pawn(this, 7,7, true));
         pieceList.add(new Rook(this, 7,7, true));
     }
 
@@ -150,7 +149,7 @@ public class Board extends JPanel {
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (isValidMove(new Move(this, selectedPiece, c, r))) {
-                    g2d.setColor(new Color(240, 90,244, 120));
+                    g2d.setColor(new Color(40, 255,10, 120));
                     g2d.fillRect(c * tileSize, r * tileSize, tileSize, tileSize);
                 }
             }
